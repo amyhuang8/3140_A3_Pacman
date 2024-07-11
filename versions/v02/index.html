@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--META DATA-->
+        <meta charset="UTF-8">
+        <meta name="author" content="Amy Huang & Anoushka Jawale">
+        <meta name="creation_date" content="May 28, 2024">
+        <meta name="last_updated" content="June 18, 2024">
+        <meta name="description" content="This is our work for Assignment 2 of CSI 3140, built off of Amy's Lab 3 content.">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--WEBSITE TITLE-->
+        <title>1D Pacman</title>
+
+        <!--FAVICONS-->
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+        <link rel="manifest" href="resources/site.webmanifest">
+
+        <!--STYLESHEET-->
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+
+    <body>
+        <!--HEADER/GAME STATS-->
+        <header>
+            <h1 id="score">Score: 0</h1>
+            <h1 id="high-score">High Score: 0</h1>
+            <h1 id="level">Level: 1</h1>
+            <button id="begin-button" onclick="resetGame();">Start</button>
+        </header>
+
+        <!--GAME BOARD-->
+        <div class="game-borders" style="height: 25vh;">
+            <div class="game-borders" style="height: 20vh;">
+                <div id="game-container" class="game-board"> 
+                    <h1>PACMAN</h1>
+                </div>
+            </div>
+        </div>
+
+        <!--INSTRUCTIONS MODAL -->
+        <div id="instructionsModal" class="modal">
+            <span class="modal-content">
+                <h1 class="modal-text">Instructions:</h1>
+                <h1 class="modal-text">Use A/D or left/right arrow keys to change direction!</h1>
+                <h2 class="modal-text">Click outside to START.</h2>
+                <br>
+            </span>
+        </div>
+
+        <!--GAME OVER MODAL -->
+        <div id="gameOverModal" class="modal">
+            <span class="modal-content">
+                <h1 class="modal-text">Game over!</h1>
+                <h1 class="modal-text">Do you want to play again?</h1>
+                <button id="restart">Restart</button>
+            </span>
+        </div>
+
+        <!--AUDIOS-->
+        <audio id="bgm" src="resources/audio/beat_pacman.mp3" loop></audio>
+        <audio id="sfx-fruit" src="resources/audio/sfx_fruit.mp3"></audio>
+        <audio id="sfx-level-up" src="resources/audio/sfx_level-up.mp3"></audio>
+        <audio id="sfx-game-over" src="resources/audio/sfx_game-over.mp3"></audio>
+
+        <!--FOOTER-->
+        <footer>
+            <p>1D PACMAN 2024</p>
+        </footer>
+
+        <!--SCRIPT-->
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
