@@ -79,7 +79,6 @@ function endGame() {
 
 }
 
-
 /**
  * This function displays the game over modal.
  */
