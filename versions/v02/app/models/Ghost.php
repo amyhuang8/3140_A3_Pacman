@@ -4,23 +4,23 @@
  * Author: Amy Huang
  * Creation Date: July 10, 2024
  * Last Updated: June 11, 2024
- * Description: This PHP file contains the object model for Pacman.
+ * Description: This PHP file contains the object model for the ghost.
  */
 
 /**
- * This class represents a model object for Pacman and its relevant data.
+ * This class represents a model object for the ghost and its relevant data.
  */
-class Pacman
+class Ghost
 {
 
     // VARIABLE DECLARATION:--------------------------------------------------------------------------------------------
     /**
-     * @var int Pacman's position on the game board
+     * @var int the ghost's position on the game board
      */
     private $position;
 
     /**
-     * @var string the direction in which Pacman is moving
+     * @var string the direction in which the ghost is moving
      */
     private $direction;
 
@@ -31,13 +31,13 @@ class Pacman
     public function __construct()
     {
         // INITIALIZATION:
-        $this->position = 1;
-        $this->direction = "right";
+        $this->position = 10;
+        $this->direction = "left";
     }
 
     // GETTER FUNCTIONS-------------------------------------------------------------------------------------------------
     /**
-     * This is a getter function for Pacman's position on the game board.
+     * This is a getter function for the ghost's position on the game board.
      * @return int the current position on the game board
      */
     public function getPosition():int
@@ -47,7 +47,7 @@ class Pacman
     }
 
     /**
-     * This is a setter function for Pacman's position.
+     * This is a setter function for the ghost's position.
      * @param int $newPosition the new position on the game board
      * @return void
      */
@@ -59,7 +59,7 @@ class Pacman
 
     /**
      * This is a getter function for the current direction.
-     * @return string the current direction in which Pacman is moving
+     * @return string the current direction in which the ghost is moving
      */
     public function getDirection():string
     {
@@ -69,7 +69,7 @@ class Pacman
 
     /**
      * This is a setter function for the direction.
-     * @param string $newDirection the new direction in which Pacman should move
+     * @param string $newDirection the new direction in which the ghost should move
      * @return void
      */
     public function setDirection(string $newDirection)
