@@ -1,0 +1,2 @@
+How to run:
+From home directory (3140_A3_Pacman), run "cd versions/v02/public && php -S localhost:4000" command in Git Bash/terminal to start the local PHP server. In Chrome, visit "http://localhost:4000/" to find the webpage.
