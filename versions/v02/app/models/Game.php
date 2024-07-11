@@ -40,6 +40,11 @@ class Game
     private $board;
 
     /**
+     * @var bool whether a fruit has been eaten
+     */
+    private $fruitEaten;
+
+    /**
      * @var int the current score
      */
     private $score;
@@ -85,6 +90,7 @@ class Game
 
         $this->createNewBoard();
 
+        $this->fruitEaten = false;
         $this->score = 0;
         $this->highScore = 0;
         $this->leaderboard = [0];
@@ -276,19 +282,23 @@ class Game
 
             case "." : //pellet
                 $this->score++; //updating score
+                $this->fruitEaten = false; //updating flag
                 $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "@" : //fruit
                 $this->score += 2; //updating score
+                $this->fruitEaten = true; //updating flag
                 $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "^" : //ghost
+                $this->fruitEaten = false; //updating flag
                 $this->gameOver = true; //updating flag
                 break;
 
             default : //empty cell
+                $this->fruitEaten = false; //updating flag
                 break;
 
         }
@@ -340,6 +350,16 @@ class Game
     {
         // OUTPUT:
         return $this->board;
+    }
+
+    /**
+     * This returns whether a fruit was just eaten.
+     * @return bool whether a fruit was eaten
+     */
+    public function isFruitEaten(): bool
+    {
+        // OUTPUT:
+        return $this->fruitEaten;
     }
 
     /**

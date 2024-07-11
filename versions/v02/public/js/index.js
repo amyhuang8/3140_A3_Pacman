@@ -259,6 +259,7 @@ function moveLeft() {
             const board = response.board;
             const directionPM = response.directionPM;
             const directionGhost = response.directionGhost;
+            const fruitEaten = response.fruitEaten;
             const score = response.score;
             const level = response.level;
             const isGameAdvanced = response.isGameAdvanced;
@@ -266,6 +267,11 @@ function moveLeft() {
 
             renderGame(board, directionPM, directionGhost); //render the updated game board
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
+
+            // PROCESS: checking if a fruit is eaten
+            if (fruitEaten) {
+                document.getElementById("sfx-fruit").play(); //playing fruit sfx
+            }
 
             // PROCESS: checking for level up
             if (isGameAdvanced) {
@@ -303,6 +309,7 @@ function moveRight() {
             const board = response.board;
             const directionPM = response.directionPM;
             const directionGhost = response.directionGhost;
+            const fruitEaten = response.fruitEaten;
             const score = response.score;
             const level = response.level;
             const isGameAdvanced = response.isGameAdvanced;
@@ -310,6 +317,11 @@ function moveRight() {
 
             renderGame(board, directionPM, directionGhost); //render the updated game board
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
+
+            // PROCESS: checking if a fruit is eaten
+            if (fruitEaten) {
+                document.getElementById("sfx-fruit").play(); //playing fruit sfx
+            }
 
             // PROCESS: checking for level up
             if (isGameAdvanced) {
