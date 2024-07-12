@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             'score' => $game->getScore(),
             'level' => $game->getLevel(),
             'isGameAdvanced' => $game->isGameAdvanced(),
-            'gameOver' => $game->isGameOver(),
+            'isGameOver' => $game->isGameOver(),
         ];
 
         // OUTPUT:
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             'score' => $game->getScore(),
             'level' => $game->getLevel(),
             'isGameAdvanced' => $game->isGameAdvanced(),
-            'gameOver' => $game->isGameOver(),
+            'isGameOver' => $game->isGameOver(),
         ];
 
         // OUTPUT:
