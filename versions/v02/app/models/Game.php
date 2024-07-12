@@ -77,7 +77,7 @@ class Game
     {
 
         // INITIALIZATION:
-        $this->boardSize = 20;
+        $this->boardSize = 15;
 
         $this->pacman = new Pacman();
         $this->ghost = new Ghost();
@@ -152,7 +152,7 @@ class Game
 
         $this->fruit->setNewPosition($this->boardSize, $this->pacman->getPosition(), $this->ghost->getPosition()); //setting a new position for the fruit
 
-        $this->board = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]; //board of pellets
+        $this->board = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]; //board of pellets
 
         $this->board[$this->pacman->getPosition()] = "C";
         $this->board[$this->ghost->getPosition()] = "^.";
@@ -269,37 +269,32 @@ class Game
     private function processMove(string $cellContents)
     {
 
-        $this->gameAdvance = false; //resetting flag
+        $this->fruit->setFruitEaten(false); //resetting flag
+        $this->gameAdvance = !in_array(".", $this->board) && !in_array("@", $this->board); //updating flag
 
         // PROCESS: checking for the cell contents
         switch ($cellContents) {
 
             case "." : //pellet
+
                 $this->score++; //updating score
-                $this->fruit->setFruitEaten(false); //updating flag
-                $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "@" : //fruit
+
                 $this->score += 2; //updating score
                 $this->fruit->setFruitEaten(true); //updating flag
-                $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "^" : //ghost
-                $this->fruit->setFruitEaten(false);  //updating flag
-                $this->gameOver = true; //updating flag
-                break;
 
-            default : //empty cell
-                $this->fruit->setFruitEaten(false);  //updating flag
+                $this->gameOver = true; //updating flag
                 break;
 
         }
 
         // PROCESS: checking for game advance
         if ($this->gameAdvance) {
-            $this->score = $this->boardSize * $this->level; //resetting score
             $this->advanceLevel();
         }
 

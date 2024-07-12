@@ -274,7 +274,7 @@ function moveLeft() {
             const board = response.board;
             const directionPM = response.directionPM;
             const directionGhost = response.directionGhost;
-            const fruitEaten = response.fruitEaten;
+            const isFruitEaten = response.isFruitEaten;
             const score = response.score;
             const level = response.level;
             const isGameAdvanced = response.isGameAdvanced;
@@ -284,7 +284,7 @@ function moveLeft() {
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
 
             // PROCESS: checking if a fruit is eaten
-            if (fruitEaten) {
+            if (isFruitEaten) {
                 document.getElementById("sfx-fruit").play(); //playing fruit sfx
             }
 
@@ -324,7 +324,7 @@ function moveRight() {
             const board = response.board;
             const directionPM = response.directionPM;
             const directionGhost = response.directionGhost;
-            const fruitEaten = response.fruitEaten;
+            const isFruitEaten = response.isFruitEaten;
             const score = response.score;
             const level = response.level;
             const isGameAdvanced = response.isGameAdvanced;
@@ -334,7 +334,7 @@ function moveRight() {
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
 
             // PROCESS: checking if a fruit is eaten
-            if (fruitEaten) {
+            if (isFruitEaten) {
                 document.getElementById("sfx-fruit").play(); //playing fruit sfx
             }
 

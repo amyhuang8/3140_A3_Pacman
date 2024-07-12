@@ -34,9 +34,7 @@ class Fruit
     public function __construct(int $boardSize, int $positionPM, int $positionGhost)
     {
         // INITIALIZATION: generating starting position of fruit and ensuring fair distance from Pacman and ghost
-        do {
-            $this->position = rand(0, $boardSize - 1);
-        } while (abs($positionPM - $this->position) < 5 || $this->position === $positionGhost);
+        $this->setNewPosition($boardSize, $positionPM, $positionGhost);
 
         $this->fruitEaten = false;
     }

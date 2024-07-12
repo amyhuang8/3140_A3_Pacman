@@ -35,7 +35,7 @@ class Ghost
         $this->direction = "left";
     }
 
-    // GETTER FUNCTIONS-------------------------------------------------------------------------------------------------
+    // GETTER & SETTER FUNCTIONS----------------------------------------------------------------------------------------
     /**
      * This is a getter function for the ghost's position on the game board.
      * @return int the current position on the game board
@@ -61,7 +61,7 @@ class Ghost
      * This is a getter function for the current direction.
      * @return string the current direction in which the ghost is moving
      */
-    public function getDirection():string
+    public function getDirection(): string
     {
         // OUTPUT:
         return $this->direction;

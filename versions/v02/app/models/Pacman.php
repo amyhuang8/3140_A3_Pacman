@@ -35,7 +35,7 @@ class Pacman
         $this->direction = "right";
     }
 
-    // GETTER FUNCTIONS-------------------------------------------------------------------------------------------------
+    // GETTER & SETTER FUNCTIONS----------------------------------------------------------------------------------------
     /**
      * This is a getter function for Pacman's position on the game board.
      * @return int the current position on the game board
