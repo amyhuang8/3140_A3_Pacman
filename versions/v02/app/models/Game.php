@@ -40,11 +40,6 @@ class Game
     private $board;
 
     /**
-     * @var bool whether a fruit has been eaten
-     */
-    private $fruitEaten;
-
-    /**
      * @var int the current score
      */
     private $score;
@@ -82,7 +77,7 @@ class Game
     {
 
         // INITIALIZATION:
-        $this->boardSize = 15;
+        $this->boardSize = 20;
 
         $this->pacman = new Pacman();
         $this->ghost = new Ghost();
@@ -90,7 +85,6 @@ class Game
 
         $this->createNewBoard();
 
-        $this->fruitEaten = false;
         $this->score = 0;
         $this->highScore = 0;
         $this->leaderboard = [0];
@@ -158,7 +152,7 @@ class Game
 
         $this->fruit->setNewPosition($this->boardSize, $this->pacman->getPosition(), $this->ghost->getPosition()); //setting a new position for the fruit
 
-        $this->board = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]; //board of pellets
+        $this->board = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]; //board of pellets
 
         $this->board[$this->pacman->getPosition()] = "C";
         $this->board[$this->ghost->getPosition()] = "^.";
@@ -282,23 +276,23 @@ class Game
 
             case "." : //pellet
                 $this->score++; //updating score
-                $this->fruitEaten = false; //updating flag
+                $this->fruit->setFruitEaten(false); //updating flag
                 $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "@" : //fruit
                 $this->score += 2; //updating score
-                $this->fruitEaten = true; //updating flag
+                $this->fruit->setFruitEaten(true); //updating flag
                 $this->gameAdvance = ($this->score === ($this->boardSize * $this->level)); //updating flag
                 break;
 
             case "^" : //ghost
-                $this->fruitEaten = false; //updating flag
+                $this->fruit->setFruitEaten(false);  //updating flag
                 $this->gameOver = true; //updating flag
                 break;
 
             default : //empty cell
-                $this->fruitEaten = false; //updating flag
+                $this->fruit->setFruitEaten(false);  //updating flag
                 break;
 
         }
@@ -359,7 +353,7 @@ class Game
     public function isFruitEaten(): bool
     {
         // OUTPUT:
-        return $this->fruitEaten;
+        return $this->fruit->isFruitEaten();
     }
 
     /**

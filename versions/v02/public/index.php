@@ -173,9 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <!--GAME BOARD-->
         <div class="game-borders" style="height: 25vh;">
             <div class="game-borders" style="height: 20vh;">
-                <div id="game-container" class="game-board">
-                    <h1>PACMAN</h1>
-                </div>
+                <div id="game-container" class="game-board"></div>
             </div>
         </div>
 

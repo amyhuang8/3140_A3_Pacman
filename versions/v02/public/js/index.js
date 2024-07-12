@@ -5,11 +5,26 @@ Last Updated: July 11, 2024
 Description: This JavaScript file contains functions for manipulating the index.php file.
 */
 
-let moveTimer = null; //timer for continuous Pacman movement
-let ghostTimer = null; //timer for continuous ghost movement
+// VARIABLE DECLARATION:
+/**
+ * an intervalID for Pacman's movement
+ * @type {number}
+ */
+let moveTimer; //timer for continuous Pacman movement
+
+/**
+ * an intervalID for the ghost's movement
+ * @type {number}
+ */
+let ghostTimer; //timer for continuous ghost movement
+
+/**
+ * the speed in ms at which the ghost moves
+ * @type {number}
+ */
 let ghostSpeed = 400; //interval in ms
 
-displayInstructions();
+displayInstructions(); //helper function to display starting instructions
 
 /**
  * This function starts the game by initiating the ghost movement interval and listening for player key events.

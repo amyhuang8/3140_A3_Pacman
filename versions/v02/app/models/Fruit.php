@@ -19,6 +19,11 @@ class Fruit
      */
     private $position;
 
+    /**
+     * @var bool whether a fruit has been eaten
+     */
+    private $fruitEaten;
+
     // CONSTRUCTOR------------------------------------------------------------------------------------------------------
     /**
      * CONSTRUCTOR METHOD
@@ -32,6 +37,8 @@ class Fruit
         do {
             $this->position = rand(0, $boardSize - 1);
         } while (abs($positionPM - $this->position) < 5 || $this->position === $positionGhost);
+
+        $this->fruitEaten = false;
     }
 
     // FUNCTIONS--------------------------------------------------------------------------------------------------------
@@ -50,7 +57,7 @@ class Fruit
         } while (abs($positionPM - $this->position) < 5 || $this->position === $positionGhost);
     }
 
-    // GETTER FUNCTIONS-------------------------------------------------------------------------------------------------
+    // GETTER & SETTER FUNCTIONS----------------------------------------------------------------------------------------
     /**
      * This is a getter function for the fruit's position on the game board.
      * @return int the current position
@@ -59,6 +66,26 @@ class Fruit
     {
         // OUTPUT:
         return $this->position;
+    }
+
+    /**
+     * This returns whether a fruit was just eaten.
+     * @return bool whether a fruit was eaten
+     */
+    public function isFruitEaten(): bool
+    {
+        // OUTPUT:
+        return $this->fruitEaten;
+    }
+
+    /**
+     * This is a setter function for whether a fruit was just eaten.
+     * @param bool $isFruitEaten whether a fruit was just eaten
+     */
+    public function setFruitEaten(bool $isFruitEaten)
+    {
+        // INITIALIZATION:
+        $this->fruitEaten = $isFruitEaten;
     }
 
 }
