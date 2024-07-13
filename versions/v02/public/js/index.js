@@ -120,6 +120,77 @@ function displayInstructions() {
 }
 
 /**
+ * This function displays the leaderboard modal.
+ */
+function displayLeaderboard() {
+
+    // VARIABLE DECLARATION:
+    const modal = document.getElementById("leaderboardModal");
+    const closeButton = document.getElementById("closeLeaderboard");
+
+    closeButton.onclick = function() {
+        modal.style.display = "none"; //hiding modal
+    }
+
+    // PROCESS: sending POST req. w/ AJAX to server
+    $.ajax({
+        type: 'POST',
+        url: '../index.php',
+        data: { action: 'displayLeaderboard' },
+        dataType: 'json',
+        success: function(response) {
+
+            // VARIABLE DECLARATION:
+            const leaderboardList = document.getElementById("leaderboardList");
+            const leaderboardArray = response.leaderboard;
+
+            leaderboardList.innerHTML = ""; //clearing previous leaderboard content
+
+            // PROCESS: adding each score to the list
+            leaderboardArray.forEach(score => {
+
+                // VARIABLE DECLARATION: creating each list element
+                const li = document.createElement("li");
+
+                li.textContent = score; //updating text content
+                leaderboardList.appendChild(li); //adding to display
+
+            });
+
+            if (!leaderboardList.hasChildNodes()) {
+                leaderboardList.innerHTML = "No scores to list"; //updating text content
+            }
+
+        },
+        error: function(xhr, status, error) {
+            // Handle errors
+            console.error(xhr.responseText);
+        }
+    });
+
+    modal.style.display = "block"; //displaying the modal
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    } //hide modal if clicking outside of prompt
+
+}
+
+/**
+ * Function to hide the leaderboard modal.
+ */
+function hideLeaderboard() {
+    try {
+        const modal = document.getElementById("leaderboardModal");
+        modal.style.display = "none";
+    } catch (error) {
+        console.error("Error in hideLeaderboard:", error);
+    }
+}
+
+/**
  * This function resets the game by re-initializing game variables and starting a new game.
  */
 function resetGame() {

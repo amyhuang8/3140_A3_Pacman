@@ -109,6 +109,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
     }
 
+    if ($_POST['action'] === "displayLeaderboard") { //showing the leaderboard
+
+        // VARIABLE DECLARATION:
+        $response = [
+            'leaderboard' => $game->getLeaderboard(),
+        ];
+
+        // OUTPUT:
+        echo json_encode($response);
+        exit;
+
+    }
+
     if ($_POST['action'] === "resetGame") { //resetting the game
 
         $game->resetGame();
@@ -177,23 +190,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             </div>
         </div>
 
-        <!--INSTRUCTIONS MODAL -->
+        <!--INSTRUCTIONS MODAL-->
         <div id="instructionsModal" class="modal">
-                    <div class="modal-content">
-                        <h1 class="modal-text">Instructions:</h1>
-                        <h1 class="modal-text">Use A/D or left/right arrow keys to change direction!</h1>
-                        <h2 class="modal-text">Click outside to START.</h2>
-                        <br>
-                    </div>
+            <div class="modal-content">
+                <h1 class="modal-text">Instructions:</h1>
+                <h1 class="modal-text">Use A/D or left/right arrow keys to change direction!</h1>
+                <h2 class="modal-text">Click outside to START.</h2>
+                <br>
+            </div>
         </div>
 
-        <!--GAME OVER MODAL -->
+        <!--GAME OVER MODAL-->
         <div id="gameOverModal" class="modal">
-                    <div class="modal-content">
-                        <h1 class="modal-text">Game over!</h1>
-                        <h1 class="modal-text">Do you want to play again?</h1>
-                        <button id="restart">Restart</button>
-                    </div>
+            <div class="modal-content">
+                <h1 class="modal-text">Game over!</h1>
+                <h1 class="modal-text">Do you want to play again?</h1>
+                <button id="restart">Restart</button>
+            </div>
+        </div>
+
+        <!--LEADERBOARD MODAL-->
+        <div id="leaderboardModal" class="modal">
+            <div class="modal-content">
+                <h1 class="modal-text">Leaderboard:</h1>
+                <ul id="leaderboardList" class="modal-text"></ul>
+                <button id="closeLeaderboard">Close</button>
+            </div>
         </div>
 
         <!--AUDIOS-->
@@ -204,6 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
         <!--FOOTER-->
         <footer>
+            <button id="leaderboard-button" onclick="displayLeaderboard();">Show Leaderboard</button>
             <p>1D PACMAN 2024</p>
         </footer>
 

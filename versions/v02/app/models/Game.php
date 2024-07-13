@@ -87,7 +87,7 @@ class Game
 
         $this->score = 0;
         $this->highScore = 0;
-        $this->leaderboard = [0];
+        $this->leaderboard = [];
         $this->level = 1;
         $this->gameAdvance = false;
         $this->gameOver = false;
@@ -108,7 +108,6 @@ class Game
         $this->pacman->setDirection("right");
         $this->ghost->setDirection("left");
 
-        $this->updateLeaderboard();
         $this->score = 0;
         $this->level = 1;
 
@@ -134,7 +133,7 @@ class Game
         // PROCESS: adding new score to leaderboard
         $this->leaderboard[] = [$this->score];
 
-        sort($this->leaderboard); //sorting leaderboard
+        rsort($this->leaderboard); //sorting leaderboard
 
         // PROCESS: keeping only the top ten scores
         if (count($this->leaderboard) > 10) {
@@ -198,6 +197,10 @@ class Game
 
         // PROCESS: checking for game over
         $this->gameOver = $positionGhost === $positionPM;
+
+        if ($this->gameOver) { //end game
+            $this->updateLeaderboard(); //updating leaderboard
+        }
 
     }
 
@@ -289,6 +292,7 @@ class Game
             case "^" : //ghost
 
                 $this->gameOver = true; //updating flag
+                $this->updateLeaderboard(); //updating leaderboard
                 break;
 
         }
