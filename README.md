@@ -17,19 +17,19 @@ The game interface is designed to be user-friendly. Below are screenshots of var
 
 ### Screenshots
 #### Main Menu
-![Main Menu](docs/design_system/main_menu_instructions.png)
+![Main Menu](versions/v02/docs/design_system/main_menu_instructions.png)
 
 #### Initial Game State
-![Initial Game State](docs/design_system/initial_game_state.png)
+![Initial Game State](versions/v02/docs/design_system/initial_game_state.png)
 
 #### Playing the game
-![Gameplay](docs/design_system/gameplay.png)
+![Gameplay](versions/v02/docs/design_system/gameplay.png)
 
 #### Game Over!
-![Game Over](docs/design_system/game_over.png)
+![Game Over](versions/v02/docs/design_system/game_over.png)
 
 ### Checking the leaderboard
-![Leaderboard](docs/design_system/leaderboard_design.png)
+![Leaderboard](versions/v02/docs/design_system/leaderboard_design.png)
 
 ## Visual Design System
 Can be found in the design_system folder, along with the assets used.
