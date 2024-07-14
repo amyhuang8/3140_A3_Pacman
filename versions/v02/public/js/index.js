@@ -42,10 +42,14 @@ function startGame() {
     moveRightContinuous(); //start with auto-moving Pacman to the right
 
     // VARIABLE DECLARATION:
-    const button = document.getElementById("begin-button");
+    const beginButton = document.getElementById("begin-button");
+    const leaderboardButton = document.getElementById("leaderboard-button");
 
-    button.disabled = true; //disabling begin button
-    button.style.cursor = "not-allowed"; //disabling cursor
+    beginButton.disabled = true; //disabling begin button
+    beginButton.style.cursor = "not-allowed"; //disabling cursor
+
+    leaderboardButton.disabled = true; //disabling leaderboard button
+    leaderboardButton.style.cursor = "not-allowed"; //disabling cursor
 
 }
 
@@ -62,9 +66,13 @@ function endGame() {
 
     // VARIABLE DECLARATION:
     const button = document.getElementById("begin-button");
+    const leaderboardButton = document.getElementById("leaderboard-button");
 
     button.disabled = false; //re-enabling begin button
     button.style.cursor = "pointer"; //resetting cursor
+
+    leaderboardButton.disabled = false; //re-enabling leaderboard button
+    leaderboardButton.style.cursor = "pointer"; //resetting cursor
 
     clearInterval(ghostTimer); //clearing ghost movement interval
     clearInterval(moveTimer); //clearing continuous movement

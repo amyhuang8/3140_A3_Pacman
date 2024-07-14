@@ -1,7 +1,7 @@
 /*
 Author: Amy Huang & Anoushka Jawale
 Creation Date: May 28, 2024
-Last Updated: July 11, 2024
+Last Updated: July 14, 2024
 Description: This CSS file contains styles for the index.php file.
 */
 
@@ -157,11 +157,19 @@ h2.modal-text {
     font-size: clamp(1rem, 2vw, 3rem);
 }
 
-#restart, #closeLeaderboard {
+#restart {
     font-family: 'Pixieboy', sans-serif;
     color: #000000;
     justify-content: center;
     font-size: 4vw;
+}
+
+#closeLeaderboard {
+    font-family: 'Pixieboy', sans-serif;
+    color: #000000;
+    justify-content: center;
+    font-size: 3vw;
+    margin-bottom: 2vh;
 }
 
 #restart:hover, #closeLeaderboard:hover {
