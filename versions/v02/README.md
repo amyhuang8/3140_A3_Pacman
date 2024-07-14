@@ -25,5 +25,8 @@ The game interface is designed to be user-friendly. Below are screenshots of var
 #### Game Over!
 ![Game Over](docs/design_system/game_over.png)
 
+### Checking the leaderboard
+![Leaderboard](docs/design_system/leaderboard_design.png)
+
 ## Visual Design System
 Can be found in the design_system folder, along with the assets used.
