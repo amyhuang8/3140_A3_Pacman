@@ -1,4 +1,5 @@
 <?php
+
 $GLOBALS["appDir"] = resolve_path("app");
 
 function resolve_path($name): string

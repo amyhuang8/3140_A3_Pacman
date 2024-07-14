@@ -88,12 +88,12 @@ function displayGameOver() {
     modal.style.display = "block"; //displaying the modal
     gameOverSound.play(); //playing game over sfx
 
-    restartButton.onclick = function() {
+    restartButton.onclick = function () {
         modal.style.display = "none"; //hiding prompt
         resetGame(); //restarting game
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
@@ -111,7 +111,7 @@ function displayInstructions() {
 
     modal.style.display = "block"; //displaying the modal
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
@@ -128,7 +128,7 @@ function displayLeaderboard() {
     const modal = document.getElementById("leaderboardModal");
     const closeButton = document.getElementById("closeLeaderboard");
 
-    closeButton.onclick = function() {
+    closeButton.onclick = function () {
         modal.style.display = "none"; //hiding modal
     }
 
@@ -138,11 +138,11 @@ function displayLeaderboard() {
         url: '../index.php',
         data: { action: 'displayLeaderboard' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
             const leaderboardList = document.getElementById("leaderboardList");
-            const leaderboardArray = response.leaderboard;
+            const leaderboardArray = response["leaderboard"];
 
             leaderboardList.innerHTML = ""; //clearing previous leaderboard content
 
@@ -162,15 +162,14 @@ function displayLeaderboard() {
             }
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) { //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 
     modal.style.display = "block"; //displaying the modal
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
@@ -189,14 +188,14 @@ function resetGame() {
         url: '../index.php',
         data: { action: 'resetGame' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
-            const board = response.board;
-            const directionPM = response.directionPM;
-            const directionGhost = response.directionGhost;
-            const highScore = response.highScore;
-            const level = response.level;
+            const board = response["board"];
+            const directionPM = response["directionPM"];
+            const directionGhost = response["directionGhost"];
+            const highScore = response["highScore"];
+            const level = response["level"];
 
             document.getElementById("high-score").innerHTML = "High Score: " + highScore; //updating high score text
             document.getElementById("level").innerHTML = "Level: " + level; //updating level text
@@ -204,9 +203,8 @@ function resetGame() {
             renderGame(board, directionPM, directionGhost); //render the updated game board
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) { //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 
@@ -327,17 +325,17 @@ function moveLeft() {
         url: '../index.php',
         data: { action: 'moveLeftPacman' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
-            const board = response.board;
-            const directionPM = response.directionPM;
-            const directionGhost = response.directionGhost;
-            const isFruitEaten = response.isFruitEaten;
-            const score = response.score;
-            const level = response.level;
-            const isGameAdvanced = response.isGameAdvanced;
-            const isGameOver = response.isGameOver;
+            const board = response["board"];
+            const directionPM = response["directionPM"];
+            const directionGhost = response["directionGhost"];
+            const isFruitEaten = response["isFruitEaten"];
+            const score = response["score"];
+            const level = response["level"];
+            const isGameAdvanced = response["isGameAdvanced"];
+            const isGameOver = response["isGameOver"];
 
             renderGame(board, directionPM, directionGhost); //render the updated game board
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
@@ -358,9 +356,8 @@ function moveLeft() {
             }
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) { //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 
@@ -377,17 +374,17 @@ function moveRight() {
         url: '../index.php',
         data: { action: 'moveRightPacman' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
-            const board = response.board;
-            const directionPM = response.directionPM;
-            const directionGhost = response.directionGhost;
-            const isFruitEaten = response.isFruitEaten;
-            const score = response.score;
-            const level = response.level;
-            const isGameAdvanced = response.isGameAdvanced;
-            const isGameOver = response.isGameOver;
+            const board = response["board"];
+            const directionPM = response["directionPM"];
+            const directionGhost = response["directionGhost"];
+            const isFruitEaten = response["isFruitEaten"];
+            const score = response["score"];
+            const level = response["level"];
+            const isGameAdvanced = response["isGameAdvanced"];
+            const isGameOver = response["isGameOver"];
 
             renderGame(board, directionPM, directionGhost); //render the updated game board
             document.getElementById("score").innerHTML = "Score: " + score; //updating score text
@@ -408,9 +405,8 @@ function moveRight() {
             }
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) {  //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 
@@ -423,7 +419,7 @@ function moveLeftContinuous() {
 
     clearInterval(moveTimer); //clearing previous timer
 
-    moveTimer = setInterval(function() {
+    moveTimer = setInterval(function () {
         moveLeft();
     }, 150); //setting speed for continuous movement
 
@@ -436,7 +432,7 @@ function moveRightContinuous() {
 
     clearInterval(moveTimer); //clearing previous timer
 
-    moveTimer = setInterval(function() {
+    moveTimer = setInterval(function () {
         moveRight();
     }, 150); //setting speed for continuous movement
 
@@ -461,19 +457,18 @@ function advanceLevel(level) {
         url: '../index.php',
         data: { action: 'advanceLevel' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
-            const board = response.board;
-            const directionPM = response.directionPM;
-            const directionGhost = response.directionGhost;
+            const board = response["board"];
+            const directionPM = response["directionPM"];
+            const directionGhost = response["directionGhost"];
 
             renderGame(board, directionPM, directionGhost); //re-rendering board
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) {  //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 
@@ -490,13 +485,13 @@ function moveGhost() {
         url: '../index.php',
         data: { action: 'moveGhost' },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
 
             // VARIABLE DECLARATION:
-            const board = response.board;
-            const directionPM = response.directionPM;
-            const directionGhost = response.directionGhost;
-            const isGameOver = response.isGameOver;
+            const board = response["board"];
+            const directionPM = response["directionPM"];
+            const directionGhost = response["directionGhost"];
+            const isGameOver = response["isGameOver"];
 
             renderGame(board, directionPM, directionGhost); //render the updated game board
 
@@ -506,9 +501,8 @@ function moveGhost() {
             }
 
         },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error(xhr.responseText);
+        error: function (xhr, status) {  //error-handling
+            console.error("Network Error! Status Code: " + status + " Error: " + xhr.responseText);
         }
     });
 

@@ -40,7 +40,7 @@ class Ghost
      * This is a getter function for the ghost's position on the game board.
      * @return int the current position on the game board
      */
-    public function getPosition():int
+    public function getPosition(): int
     {
         // OUTPUT:
         return $this->position;
