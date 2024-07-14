@@ -10,6 +10,8 @@ It includes the structural components, colour palette, and font styles used thro
   ![Instruction Menu Design](design_system/main_menu_instructions.png)
 - **Play Area**: The middle area of the game board is the main area where the game is played. It displays Pacman, the ghost, the pellets, and the fruit.
   ![Play Area Design](design_system/play_area_design.png)
+- **Leaderboard**: The modal that displays the top 10 scores.
+  ![Leaderboard Design](design_system/leaderboard.png)
 - **Restart Menu**: This overlay modal appears when the game is over and contains a restart button.
   ![Restart Menu Design](design_system/game_over.png)
 - **Footer**: Located at the bottom, it includes the name of game.
