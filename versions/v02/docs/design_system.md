@@ -20,12 +20,12 @@ It includes the structural components, colour palette, and font styles used thro
 
 ## Colour Palette
 - **Primary Colour**: #0D1321 (Dark Blue) — Used for the background colour of the game board body.
-- **Secondary Colour**: rgb(240, 235, 216, 0.8) (Beige) — Used for the backgrounds of the initial instruction menu and the restart menu.
-- **Accent Colour**: Lightpink — Used for the background colour of the hover effect for the start button and the colour of the footer.
-- **Text Colour**: White — Used for the colour of the score board display. // Black — Used for the modal text in the instructions/restart menus.
+- **Secondary Colour**: rgb(240, 235, 216, 0.8) (Beige) — Used for the backgrounds of the initial instruction menu, the restart menu, and the leaderboard menu.
+- **Accent Colour**: Lightpink — Used for the background colour of the hover effect for the start/leaderboard buttons and the colour of the footer.
+- **Text Colour**: White — Used for the colour of the score board display in the header. // Black — Used for the modal text in the instructions/restart/leaderboard menus.
 
 ## Fonts and Sizes
-- **Primary Font**: 'Pixieboy', sans-serif - Used for all text contained in game (Used for h1, #begin-button, modal-text, #restart, and p elements) 
+- **Primary Font**: 'Pixieboy', sans-serif - Used for all text contained in-game (Used for h1, #begin-button, modal-text, #restart, and p elements) 
 - **Sizes**: 4vw for all button and footer texts; 3vh for header text; responsive font sizing for modal text, with clamp(1rem, 3vw, 5rem)
 
 ## Assets
