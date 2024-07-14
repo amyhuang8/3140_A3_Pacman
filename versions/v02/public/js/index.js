@@ -1,7 +1,7 @@
 /*
 Author: Amy Huang & Anoushka Jawale
 Creation Date: July 10, 2024
-Last Updated: July 11, 2024
+Last Updated: July 13, 2024
 Description: This JavaScript file contains functions for manipulating the index.php file.
 */
 
@@ -176,18 +176,6 @@ function displayLeaderboard() {
         }
     } //hide modal if clicking outside of prompt
 
-}
-
-/**
- * Function to hide the leaderboard modal.
- */
-function hideLeaderboard() {
-    try {
-        const modal = document.getElementById("leaderboardModal");
-        modal.style.display = "none";
-    } catch (error) {
-        console.error("Error in hideLeaderboard:", error);
-    }
 }
 
 /**

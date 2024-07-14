@@ -14,6 +14,8 @@ It includes the structural components, colour palette, and font styles used thro
   ![Restart Menu Design](design_system/game_over.png)
 - **Footer**: Located at the bottom, it includes the name of game.
   ![Footer Design](design_system/footer_design.png)
+  - **Leaderboard**: This modal shows the top 10 high scores and opens/closes based on click events.
+  ![Leaderboard Menu Design](design_system/leaderboard_design.png)
 
 
 ## Colour Palette
