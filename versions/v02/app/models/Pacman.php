@@ -40,12 +40,11 @@ class Pacman
      * This is a getter function for Pacman's position on the game board.
      * @return int the current position on the game board
      */
-    public function getPosition():int
+    public function getPosition(): int
     {
         // OUTPUT:
         return $this->position;
     }
-
     /**
      * This is a setter function for Pacman's position.
      * @param int $newPosition the new position on the game board
@@ -61,7 +60,7 @@ class Pacman
      * This is a getter function for the current direction.
      * @return string the current direction in which Pacman is moving
      */
-    public function getDirection():string
+    public function getDirection(): string
     {
         // OUTPUT:
         return $this->direction;

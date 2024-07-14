@@ -1,8 +1,11 @@
 # 1D Pacman Game
 Amy Huang (300240777) & Anoushka Jawale (300233148)
 
+## How to Run
+From this directory (3140_A3_Pacman/versions/v02), run "php -S localhost:4000" command in Git Bash/terminal to start the local PHP server. In Chrome, visit "http://localhost:4000/" to find the webpage.
+
 ## Overview
-Pacman is a classic game where a Pacman character tries to gain as many points as possible while avoiding the ghost. This project is an implementation of 1D Pacman in JavaScript, HTML, and CSS.
+Pacman is a classic game where a Pacman character tries to gain as many points as possible while avoiding the ghost. This project is an implementation of 1D Pacman in PHP, JavaScript, HTML, and CSS.
 
 ## How to Play
 1. **Start the Game:** Once you have read the instructions, click outside the modal to enter the game board. Click the "Start" button to begin the game.
@@ -24,6 +27,9 @@ The game interface is designed to be user-friendly. Below are screenshots of var
 
 #### Game Over!
 ![Game Over](docs/design_system/game_over.png)
+
+### Checking the leaderboard
+![Leaderboard](docs/design_system/leaderboard_design.png)
 
 ## Visual Design System
 Can be found in the design_system folder, along with the assets used.

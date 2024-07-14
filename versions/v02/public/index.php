@@ -3,7 +3,7 @@
 /*
  * Author: Amy Huang & Anoushka Jawale
  * Creation Date: July 10, 2024
- * Last Updated: June 11, 2024
+ * Last Updated: June 12, 2024
  * Description: This PHP file contains the runtime logic for 1D Pacman.
  */
 
